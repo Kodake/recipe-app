@@ -1,7 +1,3 @@
-export interface Recipes {
-    recipes: Recipe[];
-}
-
 export interface Recipe {
     id:          string;
     title:       string;
