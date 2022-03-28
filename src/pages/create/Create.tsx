@@ -1,17 +1,42 @@
 
+import { useEffect, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useFetch } from '../../hooks/useFetch';
+
 // Styles
-import { useState } from 'react';
 import './Create.css';
 
 const Create = () => {
+    const { postData, recipes, recipe, error } = useFetch(`http://localhost:3000/recipes`, 'POST');
     const [title, setTitle] = useState('');
     const [method, setMethod] = useState('');
     const [cookingTime, setCookingTime] = useState('');
+    const [newIngredient, setNewIngredient] = useState('');
+    const [ingredients, setIngredients] = useState<string[]>([]);
+    const ingredientInput = useRef<HTMLInputElement | null>(null);
+    const hitory = useHistory();
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log(title, method, cookingTime);
+        postData({ title, ingredients, method, cookingTime: cookingTime + ' minutes' });
     }
+
+    const handleAdd = (e: any) => {
+        e.preventDefault();
+        const ing = newIngredient.trim();
+
+        if (ing && !ingredients.includes(ing)) {
+            setIngredients((prev: any) => [...prev, ing]);
+        }
+        setNewIngredient('');
+        ingredientInput.current?.focus();
+    }
+
+    useEffect(() => {
+        if (recipe) {
+            hitory.push('/');
+        }
+    }, [recipe]);
 
     return (
         <div className='create'>
@@ -27,6 +52,21 @@ const Create = () => {
                         required
                     />
                 </label>
+
+                <label>
+                    <span>Recipe ingredients:</span>
+                    <div className="ingredients">
+                        <input
+                            type='text'
+                            onChange={(e) => setNewIngredient(e.target.value)}
+                            value={newIngredient}
+                            ref={ingredientInput}
+                        />
+                        <button onClick={handleAdd} className="btn">Add</button>
+                    </div>
+                </label>
+
+                <p>Current ingredients: {ingredients.map(i => <em key={i}>{i}, </em>)}</p>
 
                 <label>
                     <span>Recipe method:</span>

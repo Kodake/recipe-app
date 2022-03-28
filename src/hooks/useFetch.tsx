@@ -1,20 +1,31 @@
 import { useState, useEffect } from 'react';
 import { Recipe } from '../interfaces/appInterfaces';
 
-export const useFetch = (url: string) => {
+export const useFetch = (url: string, method = 'GET') => {
     const [recipes, setRecipes] = useState<Recipe[] | undefined>([]);
     const [recipe, setRecipe] = useState<Recipe | undefined>(undefined);
     const [isPending, setIsPending] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [options, setOptions] = useState<RequestInit | null>(null);
+
+    const postData = (postData: any) => {
+        setOptions({
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        });
+    }
 
     useEffect(() => {
         const controller = new AbortController()
 
-        const fetchData = async () => {
+        const fetchData = async (fetchOptions: RequestInit | undefined) => {
             setIsPending(true);
 
             try {
-                const res = await fetch(url, { signal: controller.signal });
+                const res = await fetch(url, { ...fetchOptions, signal: controller.signal });
                 if (!res.ok) {
                     throw new Error(res.statusText);
                 }
@@ -34,13 +45,19 @@ export const useFetch = (url: string) => {
             }
         }
 
-        fetchData();
+        if (method === 'GET') {
+            fetchData({});
+        }
+
+        if (method === 'POST' && options) {
+            fetchData(options);
+        }
 
         return () => {
             controller.abort();
         }
 
-    }, [url]);
+    }, [url, options, method]);
 
-    return { recipes, recipe, isPending, error }
+    return { recipes, recipe, isPending, error, postData }
 }
