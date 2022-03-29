@@ -8,6 +8,33 @@
       "method": "QA",
       "cookingTime": "1 minutes",
       "id": 1
+    },
+    {
+      "title": "QW",
+      "ingredients": [
+        "QW"
+      ],
+      "method": "QW",
+      "cookingTime": "1 minutes",
+      "id": 2
+    },
+    {
+      "title": "QE",
+      "ingredients": [
+        "QE"
+      ],
+      "method": "QE",
+      "cookingTime": "1 minutes",
+      "id": 3
+    },
+    {
+      "title": "QR",
+      "ingredients": [
+        "QR"
+      ],
+      "method": "QR",
+      "cookingTime": "1 minutes",
+      "id": 4
     }
   ]
 }

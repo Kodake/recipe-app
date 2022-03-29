@@ -69,7 +69,7 @@ const Recipe = () => {
             {recipe && (
                 <>
                     <img
-                        className='delete'
+                        className='delete-details'
                         src={deleteIcon}
                         onClick={() => handleDelete(recipe.id)}
                     />

@@ -34,14 +34,16 @@
 }
 
 .delete {
-    float: right;
-    position: relative;
+    text-align: left;
+    line-height: 1.5em;
     cursor: pointer;
 }
 
-.delete:hover {
-    height: 30px;
-    width: 30px;
+.delete-details {
+    float: right;
+    position: inherit;
+    cursor: pointer;
+    filter: invert(60%);
 }
 
 .recipe.dark {
