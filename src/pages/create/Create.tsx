@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
+import { useTheme } from '../../hooks/useTheme';
 
 // Styles
 import './Create.css';
@@ -15,6 +16,7 @@ const Create = () => {
     const [ingredients, setIngredients] = useState<string[]>([]);
     const ingredientInput = useRef<HTMLInputElement | null>(null);
     const hitory = useHistory();
+    const { color } = useTheme();
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -55,14 +57,17 @@ const Create = () => {
 
                 <label>
                     <span>Recipe ingredients:</span>
-                    <div className="ingredients">
+                    <div className='ingredients'>
                         <input
                             type='text'
                             onChange={(e) => setNewIngredient(e.target.value)}
                             value={newIngredient}
                             ref={ingredientInput}
                         />
-                        <button onClick={handleAdd} className="btn">Add</button>
+                        <button
+                            onClick={handleAdd}
+                            className='btn'
+                            style={{ backgroundColor: color }}>Add</button>
                     </div>
                 </label>
 
@@ -87,7 +92,7 @@ const Create = () => {
                     />
                 </label>
 
-                <button className='btn'>Submit</button>
+                <button className='btn' style={{ backgroundColor: color }}>Submit</button>
             </form>
         </div>
     )

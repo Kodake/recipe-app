@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from './context/ThemeContext';
+
+const ThemeProviderState = ({ children }: any) => {
+  return (
+    <ThemeProvider>
+      {children}
+    </ThemeProvider>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProviderState>
+      <App />
+    </ThemeProviderState>
   </React.StrictMode>,
   document.getElementById('root')
 );

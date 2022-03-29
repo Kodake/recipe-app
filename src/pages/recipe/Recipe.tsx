@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
+import { useTheme } from '../../hooks/useTheme';
 
 // Styles
 import './Recipe.css';
@@ -14,6 +15,7 @@ const Recipe = () => {
     const url = `http://localhost:3000/recipes/${params.id}`;
     const { recipe, isPending, error } = useFetch(url);
     const history = useHistory();
+    const { mode } = useTheme();
 
     useEffect(() => {
         if (error) {
@@ -26,7 +28,7 @@ const Recipe = () => {
     }, [error, history])
 
     return (
-        <div className='recipe'>
+        <div className={`recipe ${mode}`}>
             {error && <p className='error'>{error}</p>}
             {isPending && <p className='loading'>Loading...</p>}
             {recipe && (
