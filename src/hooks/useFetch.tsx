@@ -5,6 +5,7 @@ export const useFetch = (url: string, method = 'GET') => {
     const [recipes, setRecipes] = useState<Recipe[] | undefined>([]);
     const [recipe, setRecipe] = useState<Recipe | undefined>(undefined);
     const [isPending, setIsPending] = useState(false);
+    const [recipeId, setRecipeId] = useState('');
     const [error, setError] = useState<string | null>(null);
     const [options, setOptions] = useState<RequestInit | null>(null);
 
@@ -18,6 +19,17 @@ export const useFetch = (url: string, method = 'GET') => {
         });
     }
 
+    const deleteData = (id: string) => {
+        setRecipeId(id);
+        setOptions({
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id })
+        });
+    }
+
     useEffect(() => {
         const controller = new AbortController()
 
@@ -26,9 +38,11 @@ export const useFetch = (url: string, method = 'GET') => {
 
             try {
                 const res = await fetch(url, { ...fetchOptions, signal: controller.signal });
+
                 if (!res.ok) {
                     throw new Error(res.statusText);
                 }
+
                 const data = await res.json();
 
                 setIsPending(false);
@@ -49,7 +63,7 @@ export const useFetch = (url: string, method = 'GET') => {
             fetchData({});
         }
 
-        if (method === 'POST' && options) {
+        if (method === 'POST' && options || method === 'DELETE' && options) {
             fetchData(options);
         }
 
@@ -59,5 +73,5 @@ export const useFetch = (url: string, method = 'GET') => {
 
     }, [url, options, method]);
 
-    return { recipes, recipe, isPending, error, postData }
+    return { recipes, recipe, isPending, error, postData, deleteData }
 }
