@@ -1,22 +1,13 @@
 {
   "recipes": [
     {
-      "title": "QW",
+      "title": "QA",
       "ingredients": [
-        "QW"
+        "QA"
       ],
-      "method": "QW",
+      "method": "QA",
       "cookingTime": "1 minutes",
-      "id": 2
-    },
-    {
-      "title": "QE",
-      "ingredients": [
-        "QE"
-      ],
-      "method": "QE",
-      "cookingTime": "1 minutes",
-      "id": 3
+      "id": 1
     }
   ]
 }

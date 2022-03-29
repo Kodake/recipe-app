@@ -33,6 +33,17 @@
     line-height: 1.5em;
 }
 
+.delete {
+    float: right;
+    position: relative;
+    cursor: pointer;
+}
+
+.delete:hover {
+    height: 30px;
+    width: 30px;
+}
+
 .recipe.dark {
     background: #555;
     color: #e4e4e4;
