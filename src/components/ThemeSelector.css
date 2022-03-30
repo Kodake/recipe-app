@@ -16,8 +16,8 @@
 }
 
 .theme-buttons div:hover {
-    width: 23px;
-    height: 23px;
+    width: 21px;
+    height: 21px
 }
 
 .mode-toggle {
@@ -25,12 +25,13 @@
 }
 
 .mode-toggle img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 .mode-toggle img:hover {
-    width: 27px;
-    height: 27px;
+    width: 21px;
+    height: 21px;
 }
