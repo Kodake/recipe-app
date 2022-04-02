@@ -81,4 +81,4 @@ const RecipeList = ({ recipes }: Props) => {
     )
 }
 
-export default RecipeList
+export default RecipeList;

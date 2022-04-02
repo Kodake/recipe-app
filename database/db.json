@@ -3,7 +3,9 @@
     {
       "title": "QA",
       "ingredients": [
-        "QA"
+        "QA",
+        "QW",
+        "QE"
       ],
       "method": "QA",
       "cookingTime": "1 minutes",
@@ -17,38 +19,6 @@
       "method": "QE",
       "cookingTime": "1 minutes",
       "id": 2
-    },
-    {
-      "title": "QE",
-      "ingredients": [
-        "QE"
-      ],
-      "method": "QE",
-      "cookingTime": "1 minutes",
-      "id": 3
-    },
-    {
-      "title": "QR",
-      "ingredients": [
-        "QR"
-      ],
-      "method": "QR",
-      "cookingTime": "1 minutes",
-      "id": 4
-    },
-    {
-      "title": "QWERTY",
-      "ingredients": [
-        "Q",
-        "W",
-        "E",
-        "R",
-        "T",
-        "Y"
-      ],
-      "method": "QWERTY",
-      "cookingTime": "1 minutes",
-      "id": 5
     }
   ]
 }

@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import MultiSelectInput from '../../components/MultiSelectInput';
 import { useFetch } from '../../hooks/useFetch';
 import { useTheme } from '../../hooks/useTheme';
 
@@ -58,11 +59,12 @@ const Edit = () => {
     useEffect(() => {
         if (isSubmitted) {
             Swal.fire({
-                position: 'top-end',
+                timer: 1000,
                 icon: 'success',
-                title: 'Recipe updated successfully!',
+                heightAuto: false,
+                position: 'top-end',
                 showConfirmButton: false,
-                timer: 1000
+                title: 'Recipe updated successfully!',
             })
             history.push('/');
         }
@@ -71,7 +73,7 @@ const Edit = () => {
 
     return (
         <div className='create'>
-            <h2 className='page-title edit-title'>Edit Recipe {title.substring(0, 20)}...</h2>
+            <h2 className='page-title'>Edit Recipe {title.substring(0, 20)}...</h2>
 
             <form onSubmit={handleSubmit}>
                 <label>
@@ -100,7 +102,7 @@ const Edit = () => {
                     </div>
                 </label>
 
-                <p>Current ingredients: {ingredients.map(i => <em key={i}>{i}, </em>)}</p>
+                <MultiSelectInput ingredients={ingredients} />
 
                 <label>
                     <span>Recipe method:</span>

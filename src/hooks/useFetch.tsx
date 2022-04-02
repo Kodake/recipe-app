@@ -36,7 +36,7 @@ export const useFetch = (url: string, method = 'GET') => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id })
+            body: JSON.stringify({ recipeId })
         });
     }
 
