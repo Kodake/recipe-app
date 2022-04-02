@@ -14,11 +14,21 @@
     {
       "title": "QW",
       "ingredients": [
-        "QE"
+        "QE",
+        "WS"
       ],
       "method": "QE",
       "cookingTime": "1 minutes",
       "id": 2
+    },
+    {
+      "title": "QAWQ",
+      "ingredients": [
+        "QA"
+      ],
+      "method": "QA",
+      "cookingTime": "1 minutes",
+      "id": 3
     }
   ]
 }

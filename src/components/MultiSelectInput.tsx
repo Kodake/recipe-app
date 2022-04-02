@@ -11,7 +11,7 @@ interface Props {
 }
 
 const MultiSelectInput = ({ ingredients }: Props) => {
-    const [listIngredients, setSetLitIngredients] = useState<string[]>([...ingredients]);
+    const [listIngredients, setSetLitIngredients] = useState<string[]>(ingredients);
 
     const handleDelete = (ing: string) => {
         const newIngredients = listIngredients.filter(i => i !== ing);

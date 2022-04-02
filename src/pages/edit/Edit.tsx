@@ -2,12 +2,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import MultiSelectInput from '../../components/MultiSelectInput';
 import { useFetch } from '../../hooks/useFetch';
 import { useTheme } from '../../hooks/useTheme';
 
 // Styles
 import './Edit.css';
+
+// Components
+import MultiSelectInput from '../../components/MultiSelectInput';
 
 interface Props {
     id: string;

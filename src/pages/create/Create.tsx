@@ -7,6 +7,9 @@ import { useTheme } from '../../hooks/useTheme';
 // Styles
 import './Create.css';
 
+// Components
+import MultiSelectInput from '../../components/MultiSelectInput';
+
 const Create = () => {
     const { postData, recipes, recipe, error } = useFetch(`http://localhost:3000/recipes`, 'POST');
     const [title, setTitle] = useState('');
@@ -71,7 +74,7 @@ const Create = () => {
                     </div>
                 </label>
 
-                <p>Current ingredients: {ingredients.map(i => <em key={i}>{i}, </em>)}</p>
+                <MultiSelectInput ingredients={ingredients} />
 
                 <label>
                     <span>Recipe method:</span>
