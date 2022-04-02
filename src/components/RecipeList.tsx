@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 import { Recipe } from '../interfaces/appInterfaces';
 import Swal from 'sweetalert2';
 
 // Icon Image
+import editIcon from '../assets/edit-icon.svg';
 import deleteIcon from '../assets/delete-icon.svg';
 
 // Styles
@@ -18,10 +19,15 @@ interface Props {
 const RecipeList = ({ recipes }: Props) => {
     const [recipeId, setRecipeId] = useState('');
     const { deleteData } = useFetch(`http://localhost:3000/recipes/${recipeId}`, 'DELETE');
+    const hitory = useHistory();
     const { mode } = useTheme();
 
     if (recipes.length === 0) {
         return <div className='error'>No recipes to load...</div>
+    }
+
+    const handleEdit = (id: string) => {
+        hitory.push(`/edit/${id}`);
     }
 
     const handleDelete = (id: string) => {
@@ -60,9 +66,14 @@ const RecipeList = ({ recipes }: Props) => {
                     <div>{recipe.method.substring(0, 100)}...</div>
                     <Link to={`recipes/${recipe.id}`}>Cook this</Link>
                     <img
+                        className='edit'
+                        src={editIcon}
+                        onClick={() => handleEdit(recipe.id)}
+                    />
+                    <img
                         className='delete'
                         src={deleteIcon}
-                        onClick={(e) => handleDelete(recipe.id)}
+                        onClick={() => handleDelete(recipe.id)}
                     />
                 </div>
             ))}

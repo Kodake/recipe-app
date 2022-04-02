@@ -19,6 +19,16 @@ export const useFetch = (url: string, method = 'GET') => {
         });
     }
 
+    const putData = (putData: any) => {
+        setOptions({
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(putData)
+        }); 
+    }
+
     const deleteData = (id: string) => {
         setRecipeId(id);
         setOptions({
@@ -67,11 +77,15 @@ export const useFetch = (url: string, method = 'GET') => {
             fetchData(options);
         }
 
+        if (method === 'PUT' && options) {
+            fetchData(options);
+        }
+
         return () => {
             controller.abort();
         }
 
     }, [url, options, method]);
 
-    return { recipes, recipe, isPending, error, postData, deleteData }
+    return { recipes, recipe, isPending, error, postData, putData, deleteData }
 }

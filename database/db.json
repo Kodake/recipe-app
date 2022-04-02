@@ -12,9 +12,9 @@
     {
       "title": "QW",
       "ingredients": [
-        "QW"
+        "QE"
       ],
-      "method": "QW",
+      "method": "QE",
       "cookingTime": "1 minutes",
       "id": 2
     },
@@ -35,6 +35,20 @@
       "method": "QR",
       "cookingTime": "1 minutes",
       "id": 4
+    },
+    {
+      "title": "QWERTY",
+      "ingredients": [
+        "Q",
+        "W",
+        "E",
+        "R",
+        "T",
+        "Y"
+      ],
+      "method": "QWERTY",
+      "cookingTime": "1 minutes",
+      "id": 5
     }
   ]
 }

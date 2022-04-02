@@ -33,7 +33,7 @@
     line-height: 1.5em;
 }
 
-.delete {
+.delete, .edit {
     text-align: left;
     line-height: 1.5em;
     cursor: pointer;

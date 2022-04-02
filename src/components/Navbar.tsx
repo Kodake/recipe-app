@@ -17,7 +17,7 @@ const Navbar = () => {
 
     return (
         <div className='navbar' style={{ background: color }}>
-            <nav onClick={defaultColor}>
+            <nav>
                 <Link to={'/'} className='brand'>
                     <h1>Cooking ninjas</h1>
                 </Link>
