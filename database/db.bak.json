@@ -59,16 +59,6 @@
       "method": "INTO THE OVEN AT 450 GRADES",
       "cookingTime": "10 minutes",
       "id": 1
-    },
-    {
-      "title": "MELON PIE",
-      "ingredients": [
-        "MELON",
-        "FLOUR"
-      ],
-      "method": "INTO THE OVEN AT 250 GRADES",
-      "cookingTime": "5 minutes",
-      "id": 2
     }
   ]
 }
