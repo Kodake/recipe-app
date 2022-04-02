@@ -24,7 +24,7 @@ const Edit = () => {
     const [ingredients, setIngredients] = useState<string[]>([]);
     const ingredientInput = useRef<HTMLInputElement | null>(null);
     const url = `http://localhost:3000/recipes/${params.id}`;
-    const { recipe, isPending, error } = useFetch(url);
+    const { recipe } = useFetch(url);
     const history = useHistory();
     const { color } = useTheme();
 
