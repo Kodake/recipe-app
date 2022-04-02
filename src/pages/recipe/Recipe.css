@@ -43,7 +43,7 @@
     float: right;
     position: inherit;
     cursor: pointer;
-    filter: invert(60%);
+    filter: brightness(0) saturate(100%) invert(60%) sepia(95%) saturate(7500%) hue-rotate(360deg) brightness(80%) contrast(126%);
 }
 
 .recipe.dark {
